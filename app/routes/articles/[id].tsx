@@ -8,8 +8,8 @@ import MdToHtml from "../../lib/md_to_html.tsx";
 const client = new Client({
   user: "postgres",
   database: "postgres",
-  hostname: config({}).DB_HOST,
-  password: config({}).DB_PASSWORD,
+  hostname: Deno.env.get("DB_HOST"),
+  password: Deno.env.get("DB_PASSWORD"),
   port: 5432,
 });
 await client.connect();
